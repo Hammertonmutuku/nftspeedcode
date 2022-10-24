@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:math';
 
+import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/widgets.dart';
+import 'package:nftspeedcode/screens/nfts_screen.dart';
 
 class ImageListView extends StatefulWidget {
   const ImageListView({super.key, required this.startIndex,  this.duration = 0});
@@ -76,6 +78,9 @@ class _ImageTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (_) => NFTScreen(image: image)));
+      },
       child: Hero(
         tag: image,
         child: Image.asset(
